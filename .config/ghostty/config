@@ -1,0 +1,8 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 14
+
+theme = Tomorrow Night
+background-opacity = 0.9
+
+shell-integration-features = ssh-terminfo,ssh-env
+link-url = true
