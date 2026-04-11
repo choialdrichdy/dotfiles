@@ -1,3 +1,7 @@
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
+
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
