@@ -6,9 +6,11 @@ if test -d /opt/nvim-linux-x86_64/bin
 end
 
 if status is-interactive
-    alias n nvim
-    alias lg lazygit
-    alias cd z
+    abbr n 'nvim'
+    abbr lg 'lazygit'
+    abbr cd 'z'
+
+    abbr gfr 'git fetch origin main && git rebase origin/main'
 
     # Setup starship
     starship init fish | source
