@@ -29,7 +29,7 @@ require("mini.notify").setup({
 })
 
 -- mini cmdline completion
-require("mini.cmdline").setup({})
+require("mini.cmdline").setup()
 
 -- mini surround
 require("mini.surround").setup()
@@ -42,3 +42,6 @@ require("mini.surround").setup()
 -- | `sh` | Highlight surrounding |
 -- | `sn` | Update n_lines |
 -- | `l` / `n` | as suffix for prev/next |
+
+-- mini pairs
+require("mini.pairsa").asetup()
