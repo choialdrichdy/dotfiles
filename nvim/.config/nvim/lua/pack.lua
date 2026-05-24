@@ -3,6 +3,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
+    { src = "https://github.com/saghen/blink.cmp", version = "v1" }
 })
 
 -- mini files
@@ -48,3 +49,12 @@ require("mini.surround").setup()
 
 -- mini pairs
 require("mini.pairs").setup()
+
+-- blink.cmp
+require("blink.cmp").setup({
+    keymap = { preset = "default" },
+    sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+    },
+    signature = { enabled = true }
+})
