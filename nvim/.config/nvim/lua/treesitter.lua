@@ -4,6 +4,9 @@ local ensure_installed = {
     "go", "typescript", "javascript", "tsx",
     "html", "css", "json", "bash",
     "http", "dockerfile",
+    -- Match the new LSP and formatters
+    "lua", "yaml", "python", "markdown", "markdown_inline",
+    "terraform", "hcl",
 }
 
 treesitter.install(ensure_installed)

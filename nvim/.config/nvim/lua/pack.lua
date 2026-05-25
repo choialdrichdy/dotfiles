@@ -1,9 +1,10 @@
 vim.pack.add({
     "https://github.com/nvim-mini/mini.nvim",
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/mason-org/mason.nvim",
-    { src = "https://github.com/saghen/blink.cmp", version = "v1" }
+    { src = "https://github.com/saghen/blink.cmp", version = "v1" },
+    "https://github.com/stevearc/conform.nvim",
 })
 
 -- mini files
@@ -26,7 +27,7 @@ end, { desc = "Toggle into currently opened file" })
 require("mini.notify").setup({
     -- only show messages
     content = {
-        formet = function(notif)
+        format = function(notif)
             return notif.msg
         end,
     },
@@ -57,4 +58,25 @@ require("blink.cmp").setup({
         default = { "lsp", "path", "snippets", "buffer" },
     },
     signature = { enabled = true }
+})
+
+-- conform.nvim
+require("conform").setup({
+    formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "ruff_format" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+        go = { "goimports", "gofumpt" },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
+        terraform = { "terraform_fmt" },
+    },
+    format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+    },
 })
