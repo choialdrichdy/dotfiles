@@ -74,7 +74,7 @@ require("conform").setup({
 		json = { "prettierd", "prettier", stop_after_first = true },
 		yaml = { "prettierd", "prettier", stop_after_first = true },
 		markdown = { "prettierd", "prettier", stop_after_first = true },
-		terraform = { "terraform_fmt" },
+		terraform = { "tofu_fmt", "terraform_fmt", stop_after_first = true },
 	},
 	format_on_save = {
 		timeout_ms = 500,
