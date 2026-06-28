@@ -20,9 +20,11 @@ export VISUAL="nvim"
 # ---------- GPG ----------
 export GPG_TTY=$(tty)
 
-# ---------- Starship ----------
-# export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
-
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
+
+# Neovim on linux
+if [[ -d "/opt/nvim-linux-x86_64/bin" ]]; then
+    export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
+fi
