@@ -1,4 +1,5 @@
 vim.pack.add({
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 	"https://github.com/nvim-mini/mini.nvim",
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
 	"https://github.com/neovim/nvim-lspconfig",
@@ -81,3 +82,5 @@ require("conform").setup({
 		lsp_format = "fallback",
 	},
 })
+
+vim.cmd.colorscheme("catppuccin-mocha")
