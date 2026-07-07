@@ -6,7 +6,6 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	{ src = "https://github.com/saghen/blink.cmp", version = "v1" },
 	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/christoomey/vim-tmux-navigator",
 })
 
 -- mini files
@@ -81,6 +80,10 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
+})
+
+require("catppuccin").setup({
+	transparent_background = true,
 })
 
 vim.cmd.colorscheme("catppuccin-mocha")
