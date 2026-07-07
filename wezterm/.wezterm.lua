@@ -6,6 +6,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 14
 config.color_scheme = "Catppuccin Mocha"
 config.enable_tab_bar = false
+config.window_background_opacity = 0.9
 config.window_padding = { left = 2, right = 2, top = 0, bottom = 0 }
 -- config.automatically_reload_config = true
 -- config.window_decorations = "RESIZE"
