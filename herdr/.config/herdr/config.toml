@@ -64,7 +64,7 @@ prefix = "ctrl+b"
 
 # Prefix-mode actions
 # help = "prefix+?"
-# settings = "prefix+s"
+settings = "prefix+S"
 detach = "prefix+d"
 # reload_config = "prefix+shift+r"
 # open_notification_target = "prefix+o"
@@ -74,7 +74,7 @@ goto = "prefix+s"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
-# rename_workspace = "prefix+shift+w"
+rename_workspace = "prefix+$"
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
 # next_workspace = ""     # optional, unset by default
@@ -83,7 +83,7 @@ goto = "prefix+s"
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
-rename_tab = "prefix+$"
+# rename_tab = "prefix+$"
 previous_tab = "meta+H"
 next_tab = "meta+L"
 # switch_tab = "prefix+1..9"
@@ -107,8 +107,8 @@ split_horizontal = "prefix+\""
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
-navigate_workspace_up = "ctrl+k"
-navigate_workspace_down = "ctrl+j"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
 # navigate_pane_left = "h"      # left arrow always focuses the pane to the left
 # navigate_pane_down = "j"
 # navigate_pane_up = "k"
