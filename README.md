@@ -11,6 +11,7 @@ A collection of configuration files managed with [GNU Stow](https://www.gnu.org/
 | `starship`| [Starship](https://starship.rs/) prompt with Catppuccin-based custom palette (also includes gruvbox, tokyonight, solarized, one-dark presets) |
 | `tmux`    | Tmux config with true color, vi mode, TPM plugins (resurrect, continuum, vim-tmux-navigator) |
 | `wezterm` | [WezTerm](https://wezfurlong.org/wezterm/) terminal emulator config (Catppuccin Mocha, JetBrainsMono Nerd Font, no tab bar) |
+| `pi`      | [Pi](https://pi.ai/) coding agent config: Ctrl+N/Ctrl+P slash command navigation in autocomplete dropdown |
 | `zsh`     | Zsh config with Zinit plugin manager, syntax highlighting, autosuggestions, fzf-tab, completions, aliases, integrations (mise, zoxide, starship) |
 
 ## Prerequisites
@@ -31,6 +32,7 @@ Install these on your system before deploying:
 | [ripgrep](https://github.com/BurntSushi/ripgrep#installation) | Search |
 | [lazygit](https://github.com/jesseduffield/lazygit#installation) | Git TUI |
 | [fd](https://github.com/sharkdp/fd#installation) | File finder (used by fzf) |
+| [Pi](https://pi.ai/) | Coding agent (via npm: `npm install -g @earendil-works/pi-coding-agent`) |
 | Terminal | [Ghostty](https://ghostty.org/download) or [WezTerm](https://wezfurlong.org/wezterm/installation.html) |
 
 ## Installation
@@ -47,7 +49,7 @@ stow -t ~ zsh
 stow -t ~ starship
 
 # Or deploy multiple at once
-stow -t ~ neovim ghostty wezterm starship tmux zsh
+stow -t ~ neovim ghostty wezterm starship tmux zsh pi
 ```
 
 > **Note:** To undo a stow, run `stow -D -t ~ <package>`.
@@ -89,6 +91,10 @@ dotfiles/
 │   └── .config/tmux/tmux.conf
 ├── wezterm/
 │   └── .wezterm.lua
+├── pi/
+│   └── .pi/agent/
+│       ├── keybindings.json
+│       └── settings.json
 └── zsh/
     ├── .zshenv
     └── .zshrc
@@ -100,6 +106,7 @@ dotfiles/
 |---------|--------------|
 | `stow -t ~ neovim` | Symlink Neovim config |
 | `stow -D -t ~ neovim` | Remove Neovim symlinks |
+| `stow -t ~ pi` | Symlink Pi config (Ctrl+N/P for slash command autocomplete) |
 | `stow -t ~ neovim zsh ghostty` | Deploy multiple |
 | `:PackUpdate` (nvim) | Update Neovim plugins |
 | `:Mason` (nvim) | Manage LSP/tools |
