@@ -21,7 +21,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Save undo history
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = vim.fn.expand("~/.local/state/nvim/undo")
 vim.opt.undofile = true
 
 vim.opt.clipboard:append("unnamedplus")

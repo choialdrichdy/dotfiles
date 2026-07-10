@@ -42,14 +42,19 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up in buffer with cursor 
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result with cursor centered" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result with cursor centered" })
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word cursor is on globally" })
+vim.keymap.set(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word cursor is on globally" }
+)
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Makes file executable", silent = true })
 
 -- Native Undotree TODO: check if i could move this
-vim.keymap.set("n", "<leader>u", function()
-    vim.cmd.packadd("nvim.undotree")
-    require("undotree").open()
-end, { desc = "Toggle Undotree" })
+-- vim.keymap.set("n", "<leader>u", function()
+--     vim.cmd.packadd("nvim.undotree")
+--     require("undotree").open()
+-- end, { desc = "Toggle Undotree" })
 
 vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart Neovim (:restart)" })
 -- vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
