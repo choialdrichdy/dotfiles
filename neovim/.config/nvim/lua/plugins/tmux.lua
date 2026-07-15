@@ -1,3 +1,3 @@
 vim.pack.add({
-	"christoomey/vim-tmux-navigator",
+	"https://github.com/christoomey/vim-tmux-navigator",
 })
