@@ -11,7 +11,7 @@ A collection of configuration files managed with [GNU Stow](https://www.gnu.org/
 | `starship` | [Starship](https://starship.rs/) prompt with Catppuccin-based custom palette (also includes gruvbox, tokyonight, solarized, one-dark presets)    |
 | `tmux`     | Tmux config with true color, vi mode, TPM plugins (resurrect, continuum, vim-tmux-navigator)                                                     |
 | `wezterm`  | [WezTerm](https://wezfurlong.org/wezterm/) terminal emulator config (Catppuccin Mocha, JetBrainsMono Nerd Font, no tab bar)                      |
-| `pi`       | [Pi](https://pi.ai/) coding agent config: Ctrl+N/Ctrl+P slash command navigation in autocomplete dropdown                                        |
+| `herdr`    | [Herdr](https://herdr.dev/) terminal multiplexer config (Catppuccin, vim-style Ctrl+h/j/k/l pane nav, lazygit binding)                     |
 | `zsh`      | Zsh config with Zinit plugin manager, syntax highlighting, autosuggestions, fzf-tab, completions, aliases, integrations (mise, zoxide, starship) |
 
 ## Prerequisites
@@ -32,7 +32,7 @@ Install these on your system before deploying:
 | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)    | Search                                                                                                 |
 | [lazygit](https://github.com/jesseduffield/lazygit#installation) | Git TUI                                                                                                |
 | [fd](https://github.com/sharkdp/fd#installation)                 | File finder (used by fzf)                                                                              |
-| [Pi](https://pi.ai/)                                             | Coding agent (via npm: `npm install -g @earendil-works/pi-coding-agent`)                               |
+| [Herdr](https://herdr.dev/)                                        | Terminal multiplexer (via npm: `npm install -g @herdr/herdr`)                                           |
 | Terminal                                                         | [Ghostty](https://ghostty.org/download) or [WezTerm](https://wezfurlong.org/wezterm/installation.html) |
 
 ## Installation
@@ -49,7 +49,7 @@ stow -t ~ zsh
 stow -t ~ starship
 
 # Or deploy multiple at once
-stow -t ~ neovim ghostty wezterm starship tmux zsh pi
+stow -t ~ neovim ghostty herdr wezterm starship tmux zsh
 ```
 
 > **Note:** To undo a stow, run `stow -D -t ~ <package>`.
@@ -66,7 +66,7 @@ stow -t ~ neovim ghostty wezterm starship tmux zsh pi
 ### Tmux
 
 1. Install TPM plugins: press `prefix` + `I` (capital I) inside tmux.
-2. Restore sessions is enabled via tmux-continuum (save every 15 min).
+2. Restore sessions is enabled via tmux-continuum (save every 15 min, auto-restore on launch).
 
 ### Zsh
 
@@ -91,10 +91,8 @@ dotfiles/
 │   └── .config/tmux/tmux.conf
 ├── wezterm/
 │   └── .wezterm.lua
-├── pi/
-│   └── .pi/agent/
-│       ├── keybindings.json
-│       └── settings.json
+├── herdr/
+│   └── .config/herdr/config.toml
 └── zsh/
     ├── .zshenv
     └── .zshrc
@@ -106,7 +104,6 @@ dotfiles/
 | ------------------------------ | ----------------------------------------------------------- |
 | `stow -t ~ neovim`             | Symlink Neovim config                                       |
 | `stow -D -t ~ neovim`          | Remove Neovim symlinks                                      |
-| `stow -t ~ pi`                 | Symlink Pi config (Ctrl+N/P for slash command autocomplete) |
 | `stow -t ~ neovim zsh ghostty` | Deploy multiple                                             |
 | `:PackUpdate` (nvim)           | Update Neovim plugins                                       |
 | `:Mason` (nvim)                | Manage LSP/tools                                            |
