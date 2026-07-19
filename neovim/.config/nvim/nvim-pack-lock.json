@@ -17,6 +17,10 @@
       "rev": "63fac0b45534be1645c9f23713963e45172dc89b",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
+    "gruvbox.nvim": {
+      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
     "mason.nvim": {
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"

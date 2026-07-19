@@ -1,6 +1,6 @@
-vim.pack.add({ { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } })
-require("catppuccin").setup({
-	transparent_background = true,
+vim.pack.add({ { src = "https://github.com/ellisonleao/gruvbox.nvim" } })
+require("gruvbox").setup({
+	transparent_mode = true,
 })
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("gruvbox")
