@@ -28,3 +28,9 @@ export PATH="$HOME/.local/bin:$PATH"
 if [[ -d "/opt/nvim-linux-x86_64/bin" ]]; then
     export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 fi
+
+if [[ $OSTYPE == "darwin" ]]; then
+    mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
+fi
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock
