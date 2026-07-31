@@ -1,18 +1,4 @@
 # =========================================================
-# TMUX with Agent forwarding
-# =========================================================
-# Make tmux play nicely with SSH Agent forwarding
-if [ -z ${TMUX+x} ]; then
-  # If this is not a tmux session then symlink $SSH_AUTH_SOCK
-  if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ]; then
-    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-  fi
-else
-  # If this is a tmux session then use the symlinked SSH_AUTH_SOCK
-  export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-fi
-
-# =========================================================
 # Plugin Manager
 # =========================================================
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
