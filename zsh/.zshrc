@@ -1,3 +1,9 @@
+# Fix SSH auth socket for tmux
+if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
+    rm -f "$HOME/.ssh/ssh_auth_sock"
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+    export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+fi
 # =========================================================
 # Plugin Manager
 # =========================================================
@@ -165,3 +171,6 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /home/aldrich/.local/share/mise/installs/terragrunt/1.1.4/terragrunt_linux_amd64 terragrunt
