@@ -1,3 +1,6 @@
+# Performance test - uncomment as needed
+# zmodload zsh/zprof
+
 # Keep the first occurrence of each directory, including scalar assignments.
 typeset -U PATH path FPATH fpath
 
@@ -176,3 +179,6 @@ eval "$(direnv hook zsh)"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /home/aldrich/.local/share/mise/installs/terragrunt/1.1.4/terragrunt_linux_amd64 terragrunt
+#
+# Performance test - uncomment as needed
+# zprof
