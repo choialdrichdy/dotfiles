@@ -1,3 +1,6 @@
+# Keep the first occurrence of each directory, including scalar assignments.
+typeset -U PATH path FPATH fpath
+
 # Fix SSH auth socket for tmux
 if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
     rm -f "$HOME/.ssh/ssh_auth_sock"
@@ -26,7 +29,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
 
 # Load completion system
 autoload -Uz compinit && compinit
