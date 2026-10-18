@@ -177,8 +177,12 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
+# worktrunk integration
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /home/aldrich/.local/share/mise/installs/terragrunt/1.1.4/terragrunt_linux_amd64 terragrunt
 #
 # Performance test - uncomment as needed
 # zprof
+
