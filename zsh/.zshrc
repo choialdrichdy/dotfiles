@@ -167,6 +167,7 @@ alias n='nvim'
 
 # Tmux
 alias t='tmux'
+alias tks='tmux kill-session -t'
 
 # =========================================================
 # Shell integrations
