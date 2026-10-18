@@ -167,6 +167,7 @@ alias n='nvim'
 
 # Tmux
 alias t='tmux'
+alias ta='tmux attach -t'
 alias tks='tmux kill-session -t'
 
 # =========================================================
