@@ -1,10 +1,9 @@
-onboarding = false
-# herdr configurtrue
+# herdr configuration
 # Place this file at ~/.config/herdr/config.toml
 
 # Show first-run notification setup on startup.
 # Missing also shows onboarding; set false after you've chosen.
-# onboarding = true
+onboarding = false
 
 [theme]
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
@@ -83,7 +82,7 @@ rename_workspace = "prefix+$"
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
-# rename_tab = "prefix+$"
+rename_tab = "prefix+,"  # default prefix+$ is taken by rename_workspace (tmux-style)
 previous_tab = "meta+H"
 next_tab = "meta+L"
 # switch_tab = "prefix+1..9"
