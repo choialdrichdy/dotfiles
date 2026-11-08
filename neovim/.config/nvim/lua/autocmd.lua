@@ -16,7 +16,10 @@ vim.api.nvim_create_autocmd("PackChanged", {
 			require("fff.download").download_or_build_binary()
 		end
 		if name == "nvim-treesitter" and (kind == "install" or kind == "update") then
-			vim.cmd(":TSUpdate")
+			if not ev.data.active then
+				vim.cmd.packadd("nvim-treesitter")
+			end
+			vim.cmd("TSUpdate")
 		end
 	end,
 })

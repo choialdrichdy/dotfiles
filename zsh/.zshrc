@@ -4,6 +4,9 @@
 # Keep the first occurrence of each directory, including scalar assignments.
 typeset -U PATH path FPATH fpath
 
+# GPG pinentry needs the current terminal
+export GPG_TTY=$(tty)
+
 # Fix SSH auth socket for tmux
 if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]; then
     rm -f "$HOME/.ssh/ssh_auth_sock"
@@ -48,14 +51,11 @@ zinit cdreplay -q
 HISTSIZE=100000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 
-setopt appendhistory
-setopt sharehistory
+setopt sharehistory  # also appends to the history file
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # =========================================================
@@ -115,7 +115,8 @@ zle -N _fzf_file_no_hidden
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-
+bindkey '^f' _fzf_file_no_hidden
+bindkey '^u' backward-kill-line  # match bash/readline: delete to start of line, not the whole line
 
 # =========================================================
 # Aliases
@@ -136,17 +137,16 @@ alias tree='eza --tree --icons'
 compdef eza=ls
 
 # Core utilities
-alias grep='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
 
 alias lg='lazygit'
-alias cd='z'
 
 # Navigation
 alias -- -='cd -'  # -- prevents - being parsed as a flag; cd - jumps to previous directory
 
 lf() { # zsh follow lf navigation
+    local tmp dir
     tmp=$(mktemp)
     command lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
@@ -176,12 +176,14 @@ alias tks='tmux kill-server'
 # =========================================================
 eval "$(mise activate zsh)"
 source <(fzf --zsh)
-eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then eval "$(direnv hook zsh)"; fi
 
 # worktrunk integration
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# zoxide: keep last. --cmd cd makes `cd` itself zoxide-aware (and adds `cdi`).
+eval "$(zoxide init zsh --cmd cd)"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /home/aldrich/.local/share/mise/installs/terragrunt/1.1.4/terragrunt_linux_amd64 terragrunt

@@ -2,18 +2,18 @@ vim.pack.add({ "https://github.com/dmtrKovalenko/fff.nvim" })
 
 vim.g.fff = {
 	lazy_sync = true,
-	debug = { enabled = true, show_scores = true },
 }
 
-vim.keymap.set("n", "ff", function()
+-- Leader-prefixed so they don't shadow the built-in f{char} motion.
+vim.keymap.set("n", "<leader>ff", function()
 	require("fff").find_files()
-end, { desc = "FFFind files" })
+end, { desc = "[F]ind [F]iles" })
 
-vim.keymap.set("n", "fg", function()
+vim.keymap.set("n", "<leader>fg", function()
 	require("fff").live_grep()
-end, { desc = "LiFFFe grep" })
+end, { desc = "[F]ind by [G]rep" })
 
-vim.keymap.set("n", "fz", function()
+vim.keymap.set("n", "<leader>fz", function()
 	require("fff").live_grep({
 		grep = {
 			modes = {
@@ -22,8 +22,8 @@ vim.keymap.set("n", "fz", function()
 			},
 		},
 	})
-end, { desc = "Live fffuzzy grep" })
+end, { desc = "[F]ind by fu[Z]zy grep" })
 
-vim.keymap.set("n", "fw", function()
+vim.keymap.set("n", "<leader>fw", function()
 	require("fff").live_grep_under_cursor()
-end, { desc = "Search current word / selection" })
+end, { desc = "[F]ind current [W]ord" })
