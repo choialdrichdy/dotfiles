@@ -17,9 +17,6 @@ export VISUAL="nvim"
   # export MANPAGER="batcat -l man -p"
 # fi
 
-# ---------- GPG ----------
-export GPG_TTY=$(tty)
-
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
