@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>-", "<cmd>Ex<CR>", { desc = "Open parent directory" })
+-- <leader>- (file explorer) is defined in plugins/mini.lua
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -19,7 +19,7 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Replaces selected text WITHOUT losing what you yanked
-vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked test" })
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
 
 -- Delete text without saving it to any register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })

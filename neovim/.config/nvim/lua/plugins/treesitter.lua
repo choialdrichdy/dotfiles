@@ -1,4 +1,5 @@
-vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" }})
+-- Parsers are rebuilt with :TSUpdate by the PackChanged autocmd in autocmd.lua.
+vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" } })
 
 local treesitter = require("nvim-treesitter")
 

@@ -31,8 +31,14 @@ local servers = {
 	yamlls = {
 		settings = {
 			yaml = {
+				-- Only apply the Kubernetes schema to manifest directories, not to
+				-- every YAML file (compose, GitHub Actions, Ansible, ...).
 				schemas = {
-					kubernetes = "/*.yaml",
+					kubernetes = {
+						"k8s/**/*.{yml,yaml}",
+						"kubernetes/**/*.{yml,yaml}",
+						"manifests/**/*.{yml,yaml}",
+					},
 				},
 			},
 		},
@@ -44,10 +50,10 @@ local servers = {
 require("mason").setup()
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<leader>cf", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
-end, { desc = "Format buffer" })
-vim.keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+end, { desc = "[C]ode [F]ormat buffer" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
 vim.diagnostic.config({ virtual_text = true })
 
